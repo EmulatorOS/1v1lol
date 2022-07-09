@@ -10,23 +10,26 @@
         return 'https://1v1.lol/';
       }
     });
-    window.rWS = WebSocket;
-    WebSocket = function (url, options) {
-      var split = url.split('://');
-
-      var prefix = '';
-      switch (split[0].toLowerCase()) {
-        case 'ws':
-          prefix = 'wss://www.holyubrevived.gq:8080/proxy/ws://';
-          break;
-        case 'wss':
-          prefix = 'wss://www.holyubrevived.gq:8080/proxy/wss://';
-          break;
-        default:
-          prefix = split[0];
+    Object.defineProperty(document, 'domain', {
+      get() {
+        return 'https://1v1.lol/';
       }
-      return new (Function.prototype.bind.call(window.rWS, null, (split[1].match(/\//g) || []).length === 0 ? (split[1].includes('?') ? prefix + split[1].replace('?', '/?') : prefix + split[1] + '/') : prefix + split[1], options));
-    };
+    });
+    Object.defineProperty(document, 'URL', {
+      get() {
+        return 'https://1v1.lol/';
+      }
+    });
+    Object.defineProperty(document, 'location', {
+      get() {
+        return 'https://1v1.lol/';
+      }
+    });
+    Object.defineProperty(document, 'window', {
+      get() {
+        return 'https://1v1.lol/';
+      }
+    });
 	</script>
 	<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
